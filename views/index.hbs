@@ -1,0 +1,39 @@
+<div class="uk-container uk-container-center uk-margin-top">
+    <div class="uk-panel uk-panel-box">
+        <h1>{{title}}</h1>
+        <p>Welcome to {{title}}</p>
+        <p>{{hello}}</p>
+        {{#if success}}
+            <section class="success">
+                <h2>Successful Verification</h2>
+            </section>
+        {{else}}
+            {{#if errors}}
+            <section class="error">
+                <ul>
+                    {{#each errors}}
+                        <li>{{this.msg}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+            {{/if}}
+        {{/if}}
+        <form action="/submit" method="POST" class="uk-margin">
+        <div class="input">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" class="uk-input"> 
+        </div>
+        
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="uk-input">
+        </div>
+
+        <div>
+            <label for="confirmPassword">Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="uk-input">
+        </div>
+        <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
