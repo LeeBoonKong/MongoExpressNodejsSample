@@ -18,7 +18,7 @@
             </section>
             {{/if}}
         {{/if}}
-        <form action="/submit" method="POST" class="uk-margin">
+        <form action="/insert" method="POST" class="uk-margin">
         <div class="input">
             <label for="email">Email</label>
             <input type="text" id="email" name="email" class="uk-input"> 
@@ -36,4 +36,18 @@
         <button type="submit">Submit</button>
         </form>
     </div>
+</div>
+
+<div "uk-container uk-container-center uk-margin-top">
+    <h1>Load Data</h1>
+    <a href="/get-data">LOAD DATA</a>
+    <div>
+        {{#each items}}
+        <article class="uk-margin-top">
+            <div>Email: {{this.email}}</div>
+            <div>Password: {{this.password}}</div>
+        </article>
+        {{/each}}
+    </div>
+    <!--List Datas-->
 </div>
