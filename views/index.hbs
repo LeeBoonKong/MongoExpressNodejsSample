@@ -2,7 +2,6 @@
     <div class="uk-panel uk-panel-box">
         <h1>{{title}}</h1>
         <p>Welcome to {{title}}</p>
-        <p>{{hello}}</p>
         {{#if success}}
             <section class="success">
                 <h2>Successful Verification</h2>
@@ -18,6 +17,7 @@
             </section>
             {{/if}}
         {{/if}}
+
         <form action="/insert" method="POST" class="uk-margin">
         <div class="input">
             <label for="email">Email</label>
@@ -30,10 +30,10 @@
         </div>
 
         <div>
-            <label for="confirmPassword">Password</label>
+            <label for="confirmPassword">Confirm Password</label>
             <input type="password" id="confirmPassword" name="confirmPassword" class="uk-input">
         </div>
-        <button type="submit">Submit</button>
+            <button type="submit">Submit</button>
         </form>
 
         <h1>Load Data</h1>
@@ -47,6 +47,50 @@
             </article>
             {{/each}}
         </div>
-        <!--List Datas-->
+
+        <h1>Update Data</h1>
+        {{#if successUpdate}}
+            <h2>Successfully Updated</h2>
+        {{else}}
+            {{#if errorsUpdate}}
+                <ul>
+                    {{#each errorsUpdate}}
+                    <li>{{this.msg}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        {{/if}}
+        <form action="/update" method="POST" class="uk-margin">
+        <div class="input">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" class="uk-input"> 
+        </div>
+        
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="uk-input">
+        </div>
+
+        <div>
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="uk-input">
+        </div>
+
+        <div>
+            <label for="userid">ID</label>
+            <input type="text" id="userid" name="userid" class="uk-input">
+        </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h1>Delete Data</h1>
+        <form action="/delete" method="POST" class="uk-margin">
+            <div class="input">
+                <label for="userid">ID to delete</label>
+                <input type="text" id="userid" name="userid">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>
