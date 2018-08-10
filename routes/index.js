@@ -18,7 +18,8 @@ router.get('/get-data', function(req, res, next){
     var db = client.db('test');
 
     assert.equal(null, err);
-    var cursor = db.collection('user-data').find();
+    var cursor = db.collection('user-data').find({});
+    
     cursor.forEach(function(doc, err){
       assert.equal(null, err);
       resultArray.push(doc);
@@ -27,7 +28,6 @@ router.get('/get-data', function(req, res, next){
       res.render('index', {items: resultArray});
     });
   });
-
 });
 
 router.post('/insert', function(req, res, next){
